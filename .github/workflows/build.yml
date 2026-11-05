@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v4
@@ -44,7 +46,7 @@ jobs:
         shell: powershell
         run: .\tools\publish-release.ps1
 
-      - name: Upload Zip Packages Artifact
+      - name: Upload Zip Packages (Actions Artifact)
         uses: actions/upload-artifact@v4
         with:
           name: OpenCAD-v1.0.0-Windows-x64-Packages
@@ -52,7 +54,7 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-      - name: Upload Standalone Exe Artifact
+      - name: Upload Standalone Exe (Actions Artifact)
         uses: actions/upload-artifact@v4
         with:
           name: OpenCAD-Standalone-win-x64
@@ -60,9 +62,14 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-      - name: Publish GitHub Release (On Tag)
-        if: startsWith(github.ref, 'refs/tags/v')
+      - name: Publish or Update GitHub Release
+        if: github.event_name != 'pull_request'
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/releases/*.zip
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || 'latest' }}
+          name: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || 'OpenCAD Latest Build' }}
+          prerelease: ${{ !startsWith(github.ref, 'refs/tags/v') }}
+          files: |
+            dist/releases/*.zip
+            dist/publish-win-x64-standalone/OpenCad.App.exe
           generate_release_notes: true
