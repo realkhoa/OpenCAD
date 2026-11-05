@@ -1,4 +1,7 @@
 # OpenCAD
+
+[![Build and Package OpenCAD](https://github.com/realkhoa/OpenCAD/actions/workflows/build.yml/badge.svg)](https://github.com/realkhoa/OpenCAD/actions/workflows/build.yml)
+
 > **Trạng thái sau 145 vòng** — số liệu kiểm chứng đầy đủ ở [docs/status.md](docs/status.md):
 > 943 test Core + 207 test UI + 14 cổng kiểm, tất cả xanh; 20 loại entity vẽ được, **113 lệnh**, ~27.300 dòng C#.
 
