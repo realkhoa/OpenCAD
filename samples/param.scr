@@ -1,0 +1,7 @@
+SET w 5000
+SET h 3000
+LAYER TUONG 6
+LINE 0,0 $w,0
+LINE $w,0 $w,$h
+LINE $w,$h 0,$h
+LINE 0,$h 0,0

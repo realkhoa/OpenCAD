@@ -1,0 +1,16 @@
+# Bản vẽ tham số: đổi kích thước chỉ cần sửa SET
+SET w 8000
+SET h 6000
+SET half $h     # không hỗ trợ biểu thức, chỉ dùng số
+LAYER TUONG 6
+LINE 0,0 $w,0
+LINE $w,0 $w,$h
+LINE $w,$h 0,$h
+LINE 0,$h 0,0
+LINE 0,3000 $w,3000
+LAYER NOI_THAT 3
+RECT 600,2400 3600,4800
+CIRCLE 2100,3600 600
+LAYER GHI_CHU 2
+TEXT 800,5200 250 PHONG KHACH
+DIM 0,0 $w,0 4000,-600

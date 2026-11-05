@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/OpenCad.App/OpenCad.App.csproj" />
+    <Project Path="src/OpenCad.Core/OpenCad.Core.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/OpenCad.Tools/OpenCad.Tools.csproj" />
+  </Folder>
+</Solution>

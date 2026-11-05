@@ -1,0 +1,16 @@
+﻿; Bảng kiểu in theo lớp cho OpenCAD (thay thế .ctb)
+; Dạng:  tên lớp = độ đậm mm [, color]
+;   - không có ", color"  -> in đen
+;   - có ", color"        -> giữ màu gốc
+; monochrome / default là hai khoá đặc biệt
+
+monochrome = true
+default    = 0.18
+
+TUONG      = 0.50
+CUA        = 0.35
+CUA_SO     = 0.25
+KICH_THUOC = 0.18
+TRUC       = 0.13, color
+TO_SAN     = 0.09
+CHU        = 0.25
